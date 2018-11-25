@@ -61,7 +61,6 @@ header {
                 position: relative;
                 height: 60px;
                 margin-right: 20px;
-                padding: 0 20px;
                 border: 1px solid $TheHeader_navigation_item_color;
                 border-radius: 2px;
                 overflow: hidden;
@@ -91,6 +90,7 @@ header {
                     align-items: center;
                     width: 100%;
                     height: 100%;
+                    padding: 0 20px;
                     text-decoration: none;
                     color: $TheHeader_navigation_item_color;
                     transition: $TheHeader_transition_out;
@@ -98,6 +98,7 @@ header {
 
                 &:hover a {
                     color: #212121;
+                    -webkit-background-clip: transparent;
                     transition: $TheHeader_transition_in;
                 }
             }
