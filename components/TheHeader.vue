@@ -98,7 +98,6 @@ header {
 
                 &:hover a {
                     color: #212121;
-                    -webkit-background-clip: transparent;
                     transition: $TheHeader_transition_in;
                 }
             }
