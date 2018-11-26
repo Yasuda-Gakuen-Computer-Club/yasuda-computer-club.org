@@ -1,14 +1,16 @@
 <template>
     <header>
-        <HeaderLogo
-            class="header-logo"
-            color="#FAFAFA"/>
-        <nav>
-            <ul>
-                <li><router-link to="/about">ABOUT</router-link></li>
-                <li><router-link to="/about">ABOUT</router-link></li>
-            </ul>
-        </nav>
+        <div class="header-wrapper">
+            <HeaderLogo
+                class="header-logo"
+                color="#FAFAFA"/>
+            <nav>
+                <ul>
+                    <li><router-link to="/about">ABOUT</router-link></li>
+                    <li><router-link to="/about">ABOUT</router-link></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 </template>
 
@@ -33,11 +35,16 @@ $TheHeader_transition_in: 0.12s;
 $TheHeader_transition_out: 0.3s;
 
 header {
-    display: flex;
     width: 100%;
     height: 100px;
-    padding: 0 50px;
     background: linear-gradient(120deg, #1565c0, #009688);
+}
+.header-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
 
     & .header-logo {
         width: auto;
