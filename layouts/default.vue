@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <TheHeader/>
-        <nuxt/>
-    </div>
+  <div>
+    <TheHeader/>
+    <nuxt class="page-view"/>
+  </div>
 </template>
 
 <script>
@@ -68,5 +68,10 @@ body {
     background-color: #fafafa;
     color: #212121;
     overflow-x: hidden;
+}
+.page-view {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 </style>

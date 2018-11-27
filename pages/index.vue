@@ -16,15 +16,7 @@
     </main>
 </template>
 
-<script>
-</script>
-
 <style lang="scss" scoped>
-main {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
