@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <TheHeader/>
-    <nuxt class="page-view"/>
-  </div>
+    <div>
+        <TheHeader/>
+        <nuxt class="page-view"/>
+    </div>
 </template>
 
 <script>
