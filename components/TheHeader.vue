@@ -6,8 +6,12 @@
                 color="#FAFAFA"/>
             <nav>
                 <ul>
-                    <li><router-link to="/about">ABOUT</router-link></li>
-                    <li><router-link to="/about">ABOUT</router-link></li>
+                    <li>
+                        <router-link to="/about">ABOUT</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/about">ABOUT</router-link>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -35,20 +39,33 @@ $TheHeader_transition_in: 0.12s;
 $TheHeader_transition_out: 0.3s;
 
 header {
+    position: relative;
     width: 100%;
-    height: 100px;
     background: linear-gradient(120deg, #1565c0, #009688);
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 5px;
+        margin-top: 5px;
+        border-top: dashed 3px $TheHeader_navigation_item_color;
+        transform: skewX(-30deg);
+    }
 }
 .header-wrapper {
     display: flex;
     width: 100%;
     max-width: 1000px;
-    height: 100%;
+    height: 100px;
     margin: 0 auto;
 
     & .header-logo {
         width: auto;
         height: 100%;
+        padding-bottom: 8px;
     }
 
     & nav {
