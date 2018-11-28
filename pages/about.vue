@@ -1,7 +1,9 @@
 <template>
     <main>
         <PageTitle title="このクラブについて"/>
-        <div v-html="content"/>
+        <div
+            class="content"
+            v-html="content"/>
     </main>
 </template>
 
