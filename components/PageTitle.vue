@@ -28,7 +28,7 @@ $height: 300px;
 
 .page-title {
     height: $height;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 
     & .full-width {
         position: absolute;
