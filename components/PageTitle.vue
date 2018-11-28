@@ -1,8 +1,10 @@
 <template>
     <div class="page-title">
-        <h1>
-            <TextAnimation :title="title"/>
-        </h1>
+        <div class="full-width">
+            <h1>
+                <TextAnimation :title="title"/>
+            </h1>
+        </div>
     </div>
 </template>
 
@@ -22,66 +24,73 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$height: 300px;
+
 .page-title {
-    position: absolute;
-    left: 0;
-    display: block;
-    width: 100vw;
-    height: 300px;
-    background: $themeGradient;
-    color: #fafafa;
-    overflow: hidden;
+    height: $height;
+    margin-bottom: 20px;
 
-    & h1 {
-        max-width: 1000px;
-        height: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        font-size: 3em;
-        animation: PageTitle 2s ease-out;
-
-        @keyframes PageTitle {
-            0% {
-                transform: translateX(200px);
-            }
-            100% {
-                transform: none;
-            }
-        }
-    }
-
-    &::before,
-    &::after {
-        content: "";
+    & .full-width {
         position: absolute;
-        bottom: 0;
-        display: block;
-        width: 150vw;
-        height: 10vw;
-        background-color: rgba(#fafafa, 0.3);
-    }
-    &::before {
         left: 0;
-        transform-origin: left top;
-        transform: translateY(20%) rotate(5deg);
-        animation: PageTitle_before_enter 2s ease-out;
+        display: block;
+        width: 100vw;
+        height: $height;
+        background: $themeGradient;
+        color: #fafafa;
+        overflow: hidden;
 
-        @keyframes PageTitle_before_enter {
-            0% {
-                transform: translateY(100%);
+        & h1 {
+            max-width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            font-size: 3em;
+            animation: PageTitle 2s ease-out;
+
+            @keyframes PageTitle {
+                0% {
+                    transform: translateX(200px);
+                }
+                100% {
+                    transform: none;
+                }
             }
         }
-    }
-    &::after {
-        right: 0;
-        transform-origin: right top;
-        transform: translateY(50%) rotate(-2deg);
-        animation: PageTitle_after_enter 2s ease-out;
 
-        @keyframes PageTitle_after_enter {
-            0% {
-                transform: translateY(100%);
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            display: block;
+            width: 150vw;
+            height: 10vw;
+            background-color: rgba(#fafafa, 0.3);
+        }
+        &::before {
+            left: 0;
+            transform-origin: left top;
+            transform: translateY(20%) rotate(5deg);
+            animation: PageTitle_before_enter 2s ease-out;
+
+            @keyframes PageTitle_before_enter {
+                0% {
+                    transform: translateY(100%);
+                }
+            }
+        }
+        &::after {
+            right: 0;
+            transform-origin: right top;
+            transform: translateY(50%) rotate(-2deg);
+            animation: PageTitle_after_enter 2s ease-out;
+
+            @keyframes PageTitle_after_enter {
+                0% {
+                    transform: translateY(100%);
+                }
             }
         }
     }
