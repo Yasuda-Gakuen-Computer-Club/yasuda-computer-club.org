@@ -35,8 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 $navigation_item_color: #fafafa;
-$transition_in: 0.12s;
-$transition_out: 0.3s;
 
 header {
     position: fixed;

@@ -175,6 +175,35 @@ body {
         background-color: #eee;
     }
 
+    a {
+        position: relative;
+        color: $themeColor_primary;
+        text-decoration: none;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 0;
+            height: 1px;
+            background: $themeGradient;
+            transition: $transition_out;
+        }
+        &:hover::before {
+            width: 100%;
+            transition: $transition_in;
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 20px rgba(#000, 0.1);
+    }
+
     em {
         font-style: normal;
         transform: skewX(-15deg);
