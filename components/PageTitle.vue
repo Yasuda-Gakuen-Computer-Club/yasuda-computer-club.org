@@ -49,5 +49,26 @@ export default {
             }
         }
     }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 150vw;
+        height: 10vw;
+        background-color: rgba(#fafafa, 0.3);
+    }
+    &::before {
+        left: 0;
+        transform-origin: left top;
+        transform: translateY(20%) rotate(5deg);
+    }
+    &::after {
+        right: 0;
+        transform-origin: right top;
+        transform: translateY(50%) rotate(-2deg);
+    }
 }
 </style>
