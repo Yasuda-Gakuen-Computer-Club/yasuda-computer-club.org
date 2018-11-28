@@ -44,6 +44,7 @@ header {
     left: 0;
     width: 100%;
     background: $themeGradient;
+    box-shadow: 0 0 20px rgba(#000, 0.2);
     z-index: 1;
 
     &::after {

@@ -39,6 +39,7 @@ $height: 300px;
         background: $themeGradient;
         color: #fafafa;
         overflow: hidden;
+        box-shadow: 0 0 20px rgba(#000, 0.2);
 
         & h1 {
             max-width: 1000px;
