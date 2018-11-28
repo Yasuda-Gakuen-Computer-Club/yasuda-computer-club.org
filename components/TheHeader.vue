@@ -34,16 +34,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$TheHeader_navigation_item_color: #fafafa;
-$TheHeader_transition_in: 0.12s;
-$TheHeader_transition_out: 0.3s;
+$navigation_item_color: #fafafa;
+$transition_in: 0.12s;
+$transition_out: 0.3s;
 
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(120deg, #1565c0, #009688);
+    background: $themeGradient;
     z-index: 1;
 
     &::after {
@@ -54,7 +54,7 @@ header {
         width: 100%;
         height: 5px;
         margin-top: 5px;
-        border-top: dashed 3px $TheHeader_navigation_item_color;
+        border-top: dashed 3px $navigation_item_color;
         transform: skewX(-30deg);
     }
 }
@@ -88,7 +88,7 @@ header {
                 position: relative;
                 height: 60px;
                 margin-right: 20px;
-                border: 1px solid $TheHeader_navigation_item_color;
+                border: 1px solid $navigation_item_color;
                 border-radius: 2px;
                 overflow: hidden;
 
@@ -100,14 +100,14 @@ header {
                     display: block;
                     width: 100%;
                     height: 100%;
-                    background-color: $TheHeader_navigation_item_color;
+                    background-color: $navigation_item_color;
                     transform: translateY(-100%);
-                    transition: $TheHeader_transition_out;
+                    transition: $transition_out;
                 }
 
                 &:hover::before {
                     transform: none;
-                    transition: $TheHeader_transition_in;
+                    transition: $transition_in;
                 }
 
                 & a {
@@ -119,13 +119,13 @@ header {
                     height: 100%;
                     padding: 0 20px;
                     text-decoration: none;
-                    color: $TheHeader_navigation_item_color;
-                    transition: $TheHeader_transition_out;
+                    color: $navigation_item_color;
+                    transition: $transition_out;
                 }
 
                 &:hover a {
                     color: #212121;
-                    transition: $TheHeader_transition_in;
+                    transition: $transition_in;
                 }
             }
         }

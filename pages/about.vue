@@ -1,14 +1,14 @@
 <template>
     <main>
-        <PageTitleAnimated title="このクラブについて"/>
+        <PageTitle title="このクラブについて"/>
     </main>
 </template>
 
 <script>
-import PageTitleAnimated from "@/components/PageTitleAnimated.vue";
+import PageTitle from "@/components/PageTitle.vue";
 
 export default {
-    components: { PageTitleAnimated }
+    components: { PageTitle }
 };
 </script>
 

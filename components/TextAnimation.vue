@@ -1,5 +1,5 @@
 <template>
-    <h1
+    <div
         :class="{'animation-end': animatedCount >= title.length}"
         class="page-title-animated"
         @animationend="animatedCount++">
@@ -15,12 +15,12 @@
         <template v-else>
             {{ title }}
         </template>
-    </h1>
+    </div>
 </template>
 
 <script>
 export default {
-    name: "PageTitleAnimated",
+    name: "TextAnimation",
     props: {
         title: {
             type: String,
@@ -42,26 +42,7 @@ export default {
 .page-title-animated {
     position: relative;
     margin: 20px 0;
-    padding-bottom: 8px;
     perspective: 1000px;
-    color: #1565c0;
-    overflow: hidden;
-
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 3px;
-        border-top: dashed 3px #1565c0;
-        transform: skewX(-30deg);
-        transition: 0.5s;
-    }
-
-    &.animation-end::after {
-        width: 100%;
-    }
 }
 .letter {
     display: inline-block;
