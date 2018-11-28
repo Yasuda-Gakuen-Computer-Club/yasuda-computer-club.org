@@ -42,7 +42,7 @@ body {
 }
 .page-view {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 50px 50px;
     padding-top: 100px;

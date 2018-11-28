@@ -5,9 +5,13 @@
                 class="header-logo"
                 color="#FAFAFA"/>
             <nav>
-                <ul>
+                <button
+                    :class="{fill: showNavi}"
+                    class="navigation-open"
+                    @click="showNavi = !showNavi"/>
+                <ul :class="{show: showNavi}">
                     <li>
-                        <router-link to="/about">ABOUT</router-link>
+                        <router-link to="/">TOP</router-link>
                     </li>
                     <li>
                         <router-link to="/about">ABOUT</router-link>
@@ -29,7 +33,10 @@ export default {
             type: Boolean,
             default: true
         }
-    }
+    },
+    data: () => ({
+        showNavi: false
+    })
 };
 </script>
 
@@ -74,6 +81,10 @@ header {
         width: 100%;
         height: 100%;
         flex: 1;
+
+        & .navigation-open {
+            display: none;
+        }
 
         & ul {
             width: 100%;
@@ -124,6 +135,80 @@ header {
 
                 &:hover a {
                     color: #212121;
+                    transition: $transition_in;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-wrapper {
+        & .header-logo {
+            display: block;
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        & nav {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+
+            & .navigation-open {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 1px solid #fafafa;
+                outline: 0;
+                background: transparent;
+                cursor: pointer;
+                transition: $transition_out;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    border-bottom: 2px solid #fafafa;
+                    border-right: 2px solid #fafafa;
+                    transform: translateY(-25%) rotate(45deg);
+                    transition: $transition_out;
+                }
+
+                &.fill {
+                    background-color: #fafafa;
+                    transition: $transition_in;
+
+                    &::before {
+                        border-color: $themeColor_secondary;
+                        transform: translateY(25%) rotate(225deg);
+                        transition: $transition_in;
+                    }
+                }
+            }
+
+            & ul {
+                position: fixed;
+                left: 0;
+                top: 100px;
+                width: 100%;
+                height: 80px;
+                background: $themeGradient;
+                box-shadow: 0 0 20px rgba(#000, 0.2);
+                visibility: hidden;
+                transform: translateY(-20px);
+                opacity: 0;
+                transition: $transition_out;
+
+                &.show {
+                    visibility: visible;
+                    transform: none;
+                    opacity: 1;
                     transition: $transition_in;
                 }
             }
