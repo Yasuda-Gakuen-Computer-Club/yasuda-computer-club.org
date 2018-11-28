@@ -39,9 +39,12 @@ $TheHeader_transition_in: 0.12s;
 $TheHeader_transition_out: 0.3s;
 
 header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     background: linear-gradient(120deg, #1565c0, #009688);
+    z-index: 1;
 
     &::after {
         content: "";
