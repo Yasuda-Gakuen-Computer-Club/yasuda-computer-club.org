@@ -37,7 +37,7 @@ body {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     background-color: #fafafa;
-    color: #212121;
+    color: #424242;
     overflow-x: hidden;
 }
 .page-view {
