@@ -30,6 +30,7 @@ export default {
     height: 300px;
     background: $themeGradient;
     color: #fafafa;
+    overflow: hidden;
 
     & h1 {
         max-width: 1000px;
@@ -64,11 +65,25 @@ export default {
         left: 0;
         transform-origin: left top;
         transform: translateY(20%) rotate(5deg);
+        animation: PageTitle_before_enter 2s ease-out;
+
+        @keyframes PageTitle_before_enter {
+            0% {
+                transform: translateY(100%);
+            }
+        }
     }
     &::after {
         right: 0;
         transform-origin: right top;
         transform: translateY(50%) rotate(-2deg);
+        animation: PageTitle_after_enter 2s ease-out;
+
+        @keyframes PageTitle_after_enter {
+            0% {
+                transform: translateY(100%);
+            }
+        }
     }
 }
 </style>
