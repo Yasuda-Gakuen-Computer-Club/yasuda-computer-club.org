@@ -27,12 +27,12 @@
         border: 1px solid #ccc;
 
         &:nth-child(even) {
-            animation: PageIndex_enter_even 1s 2s 1 forwards;
+            animation: PageIndex_enter_even 1s 0.5s 1 forwards;
             opacity: 0;
 
             @keyframes PageIndex_enter_even {
                 0% {
-                    transform: translateY(50px) rotateX(90deg);
+                    transform: translateY(50px) rotateX(45deg) rotateY(45deg);
                 }
                 100% {
                     transform: none;
@@ -41,12 +41,12 @@
             }
         }
         &:nth-child(odd) {
-            animation: PageIndex_enter_odd 1s 2s 1 forwards;
+            animation: PageIndex_enter_odd 1s 1s 1 forwards;
             opacity: 0;
 
             @keyframes PageIndex_enter_odd {
                 0% {
-                    transform: translateY(-50px) rotateX(-90deg);
+                    transform: translateY(-50px) rotateX(45deg) rotateY(45deg);
                 }
                 100% {
                     transform: none;
@@ -56,11 +56,11 @@
         }
         &:first-child {
             background-color: #ccc;
-            animation: PageIndex_enter_first 2s 1 forwards;
+            animation: PageIndex_enter_first 1s 1 forwards;
 
             @keyframes PageIndex_enter_first {
                 0% {
-                    transform: rotateX(180deg) scale(2);
+                    transform: translateX(100px) rotateX(45deg) rotateY(45deg);
                     opacity: 0;
                 }
                 100% {
