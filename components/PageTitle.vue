@@ -29,6 +29,11 @@ $height: 300px;
 .page-title {
     height: $height;
     margin-bottom: 50px;
+    letter-spacing: 0.1em;
+
+    & ::selection {
+        background-color: rgba(#fafafa, 0.3);
+    }
 
     & .full-width {
         position: absolute;
@@ -42,12 +47,15 @@ $height: 300px;
         box-shadow: 0 0 20px rgba(#000, 0.2);
 
         & h1 {
+            position: relative;
             max-width: 1000px;
             height: 100%;
             margin: 0 auto;
+            padding: 0 50px;
             display: flex;
             align-items: center;
             font-size: 3em;
+            text-shadow: 0 0 20px rgba(#000, 0.1);
             animation: PageTitle 2s ease-out;
 
             @keyframes PageTitle {
@@ -57,6 +65,23 @@ $height: 300px;
                 100% {
                     transform: none;
                 }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100px;
+                width: 100px;
+                height: $height * 1.5;
+                background: linear-gradient(
+                    0deg,
+                    rgba(#fafafa, 0.3),
+                    transparent
+                );
+                box-shadow: 0 0 20px rgba(#000, 0.1);
+                transform-origin: right top;
+                transform: rotate(15deg);
             }
         }
 
@@ -69,6 +94,7 @@ $height: 300px;
             width: 150vw;
             height: 10vw;
             background-color: rgba(#fafafa, 0.3);
+            box-shadow: 0 0 20px rgba(#000, 0.1);
         }
         &::before {
             left: 0;
