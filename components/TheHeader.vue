@@ -119,11 +119,6 @@ header {
                     transition: $transition_out;
                 }
 
-                &:hover::before {
-                    transform: none;
-                    transition: $transition_in;
-                }
-
                 & a {
                     position: relative;
                     display: flex;
@@ -137,9 +132,15 @@ header {
                     transition: $transition_out;
                 }
 
-                &:hover a {
-                    color: #212121;
-                    transition: $transition_in;
+                @include hover-or-active {
+                    a {
+                        color: #212121;
+                        transition: $transition_in;
+                    }
+                    &::before {
+                        transform: none;
+                        transition: $transition_in;
+                    }
                 }
             }
         }

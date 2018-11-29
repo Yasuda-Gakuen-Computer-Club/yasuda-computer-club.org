@@ -26,3 +26,14 @@
         }
     }
 }
+
+@mixin hover-or-active {
+    &:active {
+        @content;
+    }
+    @media (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}

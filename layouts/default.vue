@@ -223,11 +223,6 @@ body {
         text-decoration: none;
         transition: $transition_out;
 
-        &:hover {
-            background-color: rgba($themeColor_secondary, 0.1);
-            transition: $transition_in;
-        }
-
         &::before {
             content: "";
             position: absolute;
@@ -239,9 +234,15 @@ body {
             background: $themeGradient;
             transition: $transition_out;
         }
-        &:hover::before {
-            width: 100%;
+
+        @include hover-or-active {
+            background-color: rgba($themeColor_secondary, 0.1);
             transition: $transition_in;
+
+            &::before {
+                width: 100%;
+                transition: $transition_in;
+            }
         }
     }
 
