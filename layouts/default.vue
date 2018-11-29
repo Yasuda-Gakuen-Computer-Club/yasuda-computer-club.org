@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import "highlight.js/styles/github.css";
+
 import TheHeader from "@/components/TheHeader.vue";
 
 export default {
@@ -19,6 +21,9 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+::selection {
+    background-color: rgba($themeColor_primary, 0.3);
 }
 html,
 body {
@@ -35,6 +40,7 @@ body {
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: "palt";
     box-sizing: border-box;
     background-color: #fafafa;
     color: #424242;
@@ -59,19 +65,28 @@ body {
     }
 }
 .content {
+    line-height: 2;
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6,
-    ul,
-    ol,
     p,
     blockquote,
     pre,
     table {
         margin: 20px 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        letter-spacing: 0.08em;
     }
 
     h1 {
@@ -94,6 +109,10 @@ body {
             width: 100%;
             border-bottom: dashed 3px #fafafa;
             transform: skewX(-30deg);
+        }
+
+        &::selection {
+            background-color: rgba(#fafafa, 0.3);
         }
     }
 
@@ -215,7 +234,13 @@ body {
     em {
         font-style: normal;
         transform: skewX(-15deg);
-        text-decoration: underline;
+        background: linear-gradient(
+            0deg,
+            rgba($themeColor_secondary, 0.2),
+            rgba($themeColor_primary, 0.2) 50%,
+            transparent 50%,
+            transparent
+        );
     }
 
     hr {
