@@ -171,14 +171,22 @@ body {
     code {
         border: 1px solid #bdbdbd;
         border-radius: 5px;
-        padding: 5px;
+        padding: 2px 5px;
         background-color: #eee;
     }
 
     a {
         position: relative;
+        padding: 2px 5px;
+        border-radius: 2px;
         color: $themeColor_primary;
         text-decoration: none;
+        transition: $transition_out;
+
+        &:hover {
+            background-color: rgba($themeColor_secondary, 0.1);
+            transition: $transition_in;
+        }
 
         &::before {
             content: "";
