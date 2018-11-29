@@ -29,7 +29,6 @@ export default {
 html,
 body {
     width: 100%;
-    height: 100%;
 }
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
@@ -47,7 +46,6 @@ body {
     color: #424242;
     overflow-x: hidden;
     overflow-y: scroll;
-    perspective: 1000px;
 }
 .page-view {
     transform-origin: top;
@@ -61,7 +59,7 @@ body {
 .page-enter,
 .page-leave-to {
     opacity: 0;
-    transform: rotateX(10deg);
+    transform: translateY(-50px);
 }
 
 @mixin headingBottomBorder($border-width, $font-size) {
@@ -83,6 +81,11 @@ body {
     padding: 420px 50px 50px;
     background-color: #fcfcfc;
     box-shadow: 0 0 20px rgba(#000, 0.2);
+
+    @media screen and (max-width: 800px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 .markdown {
     h1,
@@ -109,7 +112,7 @@ body {
 
     h1 {
         position: relative;
-        padding: 10px;
+        padding: 5px 10px;
         border-radius: 5px;
         font-weight: bold;
         font-size: 2em;

@@ -1,15 +1,19 @@
 <template>
     <header>
         <div class="header-wrapper">
-            <HeaderLogo
-                class="header-logo"
-                color="#FAFAFA"/>
+            <router-link to="/">
+                <HeaderLogo
+                    class="header-logo"
+                    color="#FAFAFA"/>
+            </router-link>
             <nav>
                 <button
                     :class="{fill: showNavi}"
                     class="navigation-open"
                     @click="showNavi = !showNavi"/>
-                <ul :class="{show: showNavi}">
+                <ul
+                    :class="{show: showNavi}"
+                    @click="showNavi = false">
                     <li>
                         <router-link to="/">TOP</router-link>
                     </li>
