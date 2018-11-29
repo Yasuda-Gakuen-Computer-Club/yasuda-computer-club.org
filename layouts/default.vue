@@ -48,7 +48,7 @@ body {
     overflow-y: scroll;
 }
 .page-view {
-    transform-origin: top;
+    transform-origin: right top;
 }
 .page-enter-active {
     transition: 0.5s ease-out;
@@ -56,10 +56,13 @@ body {
 .page-leave-active {
     transition: 0.5s ease-in;
 }
-.page-enter,
+.page-enter {
+    opacity: 0;
+    transform: scaleX(1.2);
+}
 .page-leave-to {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: skewY(2deg);
 }
 
 @mixin headingBottomBorder($border-width, $font-size) {
