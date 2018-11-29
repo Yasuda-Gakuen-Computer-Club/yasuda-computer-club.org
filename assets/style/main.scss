@@ -257,6 +257,9 @@ body {
     }
 
     table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
         border-collapse: collapse;
 
         & thead {
@@ -272,6 +275,7 @@ body {
         & td,
         & th {
             padding: 5px 10px;
+            white-space: nowrap;
         }
     }
 }
