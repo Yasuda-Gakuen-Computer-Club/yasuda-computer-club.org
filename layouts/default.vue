@@ -45,15 +45,25 @@ body {
     background-color: #fafafa;
     color: #424242;
     overflow-x: hidden;
+    overflow-y: scroll;
+    perspective: 1000px;
 }
 .page-view {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 50px 50px;
-    padding-top: 100px;
-    background-color: #fcfcfc;
-    box-shadow: 0 0 20px rgba(#000, 0.2);
+    transform-origin: top;
+}
+.page-enter-active {
+    transition: 0.5s ease-out;
+}
+.page-leave-active {
+    transition: 0.5s ease-in;
+}
+.page-enter {
+    opacity: 0;
+    transform: rotateX(20deg);
+}
+.page-leave-to {
+    opacity: 0;
+    transform: rotateX(-20deg);
 }
 
 @mixin headingBottomBorder($border-width, $font-size) {
@@ -66,7 +76,17 @@ body {
 }
 .content {
     line-height: 2;
-
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+.page-title + .content {
+    padding: 420px 50px 50px;
+    background-color: #fcfcfc;
+    box-shadow: 0 0 20px rgba(#000, 0.2);
+}
+.markdown {
     h1,
     h2,
     h3,

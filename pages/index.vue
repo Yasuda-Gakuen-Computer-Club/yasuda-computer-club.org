@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="content">
         <div class="grid-container">
             <div class="grid-item first">
                 <img

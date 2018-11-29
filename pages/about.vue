@@ -2,7 +2,7 @@
     <main>
         <PageTitle title="このクラブについて"/>
         <div
-            class="content"
+            class="content markdown"
             v-html="content"/>
     </main>
 </template>

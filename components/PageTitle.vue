@@ -1,10 +1,8 @@
 <template>
     <div class="page-title">
-        <div class="full-width">
-            <h1>
-                <TextAnimation :title="title"/>
-            </h1>
-        </div>
+        <h1>
+            <TextAnimation :title="title"/>
+        </h1>
     </div>
 </template>
 
@@ -27,97 +25,89 @@ export default {
 $height: 300px;
 
 .page-title {
-    height: $height;
-    margin-bottom: 50px;
     letter-spacing: 0.1em;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: $height;
+    background: $themeGradient;
+    color: #fafafa;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(#000, 0.2);
 
     & ::selection {
         background-color: rgba(#fafafa, 0.3);
     }
 
-    & .full-width {
-        position: absolute;
-        left: 0;
-        display: block;
-        width: 100vw;
-        height: $height;
-        background: $themeGradient;
-        color: #fafafa;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(#000, 0.2);
+    & h1 {
+        position: relative;
+        max-width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 50px;
+        display: flex;
+        align-items: center;
+        font-size: 3em;
+        text-shadow: 0 0 20px rgba(#000, 0.1);
+        animation: PageTitle 2s ease-out;
 
-        & h1 {
-            position: relative;
-            max-width: 1000px;
-            height: 100%;
-            margin: 0 auto;
-            padding: 0 50px;
-            display: flex;
-            align-items: center;
-            font-size: 3em;
-            text-shadow: 0 0 20px rgba(#000, 0.1);
-            animation: PageTitle 2s ease-out;
-
-            @keyframes PageTitle {
-                0% {
-                    transform: translateX(200px);
-                }
-                100% {
-                    transform: none;
-                }
+        @keyframes PageTitle {
+            0% {
+                transform: translateX(200px);
             }
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 100px;
-                width: 100px;
-                height: $height * 1.5;
-                background: linear-gradient(
-                    0deg,
-                    rgba(#fafafa, 0.3),
-                    transparent
-                );
-                box-shadow: 0 0 20px rgba(#000, 0.1);
-                transform-origin: right top;
-                transform: rotate(15deg);
+            100% {
+                transform: none;
             }
         }
 
-        &::before,
-        &::after {
+        &::before {
             content: "";
             position: absolute;
-            bottom: 0;
-            display: block;
-            width: 150vw;
-            height: 10vw;
-            background-color: rgba(#fafafa, 0.3);
+            top: 0;
+            left: 100px;
+            width: 100px;
+            height: $height * 1.5;
+            background: linear-gradient(0deg, rgba(#fafafa, 0.3), transparent);
             box-shadow: 0 0 20px rgba(#000, 0.1);
+            transform-origin: right top;
+            transform: rotate(15deg);
         }
-        &::before {
-            left: 0;
-            transform-origin: left top;
-            transform: translateY(20%) rotate(5deg);
-            animation: PageTitle_before_enter 2s ease-out;
+    }
 
-            @keyframes PageTitle_before_enter {
-                0% {
-                    transform: translateY(100%);
-                }
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 150vw;
+        height: 10vw;
+        background-color: rgba(#fafafa, 0.3);
+        box-shadow: 0 0 20px rgba(#000, 0.1);
+    }
+    &::before {
+        left: 0;
+        transform-origin: left top;
+        transform: translateY(20%) rotate(5deg);
+        animation: PageTitle_before_enter 2s ease-out;
+
+        @keyframes PageTitle_before_enter {
+            0% {
+                transform: translateY(100%);
             }
         }
-        &::after {
-            right: 0;
-            transform-origin: right top;
-            transform: translateY(50%) rotate(-2deg);
-            animation: PageTitle_after_enter 2s ease-out;
+    }
+    &::after {
+        right: 0;
+        transform-origin: right top;
+        transform: translateY(50%) rotate(-2deg);
+        animation: PageTitle_after_enter 2s ease-out;
 
-            @keyframes PageTitle_after_enter {
-                0% {
-                    transform: translateY(100%);
-                }
+        @keyframes PageTitle_after_enter {
+            0% {
+                transform: translateY(100%);
             }
         }
     }
