@@ -21,6 +21,7 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 ::selection {
     background-color: rgba($themeColor_primary, 0.3);
@@ -57,13 +58,10 @@ body {
 .page-leave-active {
     transition: 0.5s ease-in;
 }
-.page-enter {
-    opacity: 0;
-    transform: rotateX(20deg);
-}
+.page-enter,
 .page-leave-to {
     opacity: 0;
-    transform: rotateX(-20deg);
+    transform: rotateX(10deg);
 }
 
 @mixin headingBottomBorder($border-width, $font-size) {
