@@ -8,7 +8,7 @@
                 <h2>ここにキャッチコピー</h2>
             </div>
             <div class="grid-item about">
-                <router-link to="/about">ABOUT</router-link>
+                <nuxt-link to="/about">ABOUT</nuxt-link>
             </div>
             <div class="grid-item">ぴよ</div>
             <div class="grid-item">ふー</div>
