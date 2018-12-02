@@ -20,6 +20,9 @@
                     <li>
                         <router-link to="/about">ABOUT</router-link>
                     </li>
+                    <li>
+                        <router-link to="/articles">ARTICLES</router-link>
+                    </li>
                 </ul>
             </nav>
         </div>
