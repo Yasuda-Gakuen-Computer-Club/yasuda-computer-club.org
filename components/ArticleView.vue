@@ -25,12 +25,13 @@
                     v-if="attributes.tags"
                     class="attribute">
                     タグ:
-                    <span
+                    <nuxt-link
                         v-for="tag in attributes.tags.split(',').map(s => s.trim())"
                         :key="tag"
+                        :to="`/tags/${tag}`"
                         class="attribute-tag">
                         {{ tag }}
-                    </span>
+                    </nuxt-link>
                 </div>
             </div>
             <div
@@ -71,6 +72,7 @@ export default {
 <style lang="scss" scoped>
 .attributes {
     display: flex;
+    flex-wrap: wrap;
     border-bottom: 1px solid #bdbdbd;
 
     & .material-icons {
@@ -79,10 +81,6 @@ export default {
 
     & .attribute {
         padding: 5px 10px;
-
-        & ~ .attribute {
-            border-left: 1px solid #bdbdbd;
-        }
     }
 
     & .attribute-tag {
@@ -90,10 +88,12 @@ export default {
         position: relative;
         height: 32px;
         vertical-align: middle;
-        margin-left: 20px;
+        margin-left: 24px;
         padding: 0 10px;
-        border: 1px solid #bdbdbd;
-        background-color: #eee;
+        background-color: #ddd;
+        color: currentColor;
+        text-decoration: none;
+        border-radius: 2px;
 
         &::before,
         &::after {
@@ -103,19 +103,23 @@ export default {
             top: 0;
             bottom: 0;
             margin: auto;
+        }
+        &::before {
+            left: -10px;
             width: 0;
             height: 0;
             border-style: solid;
-        }
-        &::before {
-            left: -17px;
-            border-color: transparent #bdbdbd transparent transparent;
-            border-width: 16px 16px 16px 0;
+            border-color: transparent transparent #ddd #ddd;
+            border-width: 11.5px;
+            border-radius: 2px;
+            transform: rotate(45deg);
         }
         &::after {
-            left: -15px;
-            border-color: transparent #eee transparent transparent;
-            border-width: 15px 15px 15px 0;
+            left: -8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fafafa;
         }
     }
 
@@ -124,7 +128,6 @@ export default {
 
         & .attribute ~ .attribute {
             border-left: 0;
-            border-top: 1px solid #bdbdbd;
         }
     }
 }
