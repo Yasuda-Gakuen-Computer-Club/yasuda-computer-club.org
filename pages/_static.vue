@@ -1,8 +1,8 @@
 <template>
     <main>
         <ArticleView
-            :attributes="content[0]"
-            :body="content[1]"/>
+            :attributes="content.attributes"
+            :body="content.body"/>
     </main>
 </template>
 
