@@ -179,6 +179,13 @@ body {
             padding-left: 30px;
         }
 
+        & ul > li::before {
+            border-left-color: $themeColor_secondary;
+        }
+        & ol > li::before {
+            background-color: $themeColor_secondary;
+        }
+
         & > li {
             position: relative;
 
