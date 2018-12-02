@@ -1,5 +1,4 @@
-const pkg = require("./package"),
-    all = require("./loaders/all-loader/index.js");
+const all = require("./loaders/all-loader/index.js");
 
 module.exports = {
     mode: "universal",
@@ -8,9 +7,13 @@ module.exports = {
     ** Headers of the page
     */
     head: {
-        title: pkg.name,
+        title: "安田学園コンピュータークラブ",
         meta: [
             { charset: "utf-8" },
+            {
+                "http-equiv": "X-UA-Compatible",
+                content: "IE=edge"
+            },
             {
                 name: "viewport",
                 content: "width=device-width, initial-scale=1"
@@ -19,11 +22,77 @@ module.exports = {
                 hid: "description",
                 name: "description",
                 content:
-                    "東京都墨田区の安田学園コンピュータークラブのウェブサイトです。"
+                    "東京都墨田区の安田学園コンピュータークラブのウェブサイトです。さまざまな技術系の記事やクラブとしての活動内容などを掲載しております。"
             },
             {
                 hid: "theme-color",
                 name: "theme-color",
+                content: "#1565c0"
+            },
+            {
+                hid: "og:url",
+                property: "og:url",
+                content: "https://yasuda-computer-club.org"
+            },
+            {
+                hid: "og:title",
+                property: "og:title",
+                content: "安田学園コンピュータークラブ"
+            },
+            {
+                hid: "og:type",
+                property: "og:type",
+                content: "website"
+            },
+            {
+                hid: "og:description",
+                property: "og:description",
+                content:
+                    "東京都墨田区の安田学園コンピュータークラブのウェブサイトです。さまざまな技術系の記事やクラブとしての活動内容などを掲載しております。"
+            },
+            {
+                hid: "og:image",
+                property: "og:image",
+                content: "/ogp_image.png"
+            },
+            {
+                hid: "og:site_name",
+                property: "og:site_name",
+                content: "安田学園コンピュータークラブ"
+            },
+            {
+                hid: "og:locale",
+                property: "og:locale",
+                content: "ja_JP"
+            },
+            {
+                hid: "og:image",
+                property: "og:image",
+                content: "/image_ogp.png"
+            },
+            {
+                hid: "twitter:card",
+                property: "twitter:card",
+                content: "summary_large_image"
+            },
+            {
+                hid: "twitter:site",
+                property: "twitter:site",
+                content: "@yasuda_cpc"
+            },
+            {
+                hid: "format-detection",
+                name: "format-detection",
+                content: "email=no,telephone=no,address=no"
+            },
+            {
+                hid: "msapplication-TileImage",
+                name: "msapplication-TileImage",
+                content: "/image_mstile.png"
+            },
+            {
+                hid: "msapplication-TileColor",
+                name: "msapplication-TileColor",
                 content: "#1565c0"
             }
         ],
