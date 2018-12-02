@@ -18,7 +18,13 @@ module.exports = {
             {
                 hid: "description",
                 name: "description",
-                content: pkg.description
+                content:
+                    "東京都墨田区の安田学園コンピュータークラブのウェブサイトです。"
+            },
+            {
+                hid: "theme-color",
+                name: "theme-color",
+                content: "#1565c0"
             }
         ],
         link: [
@@ -33,7 +39,7 @@ module.exports = {
     /*
     ** Customize the progress-bar color
     */
-    loading: { color: "#fff" },
+    loading: { color: "#fafafa" },
 
     /*
     ** Global CSS
