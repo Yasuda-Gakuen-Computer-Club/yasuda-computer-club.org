@@ -156,10 +156,12 @@ module.exports = {
 
             config.module.rules.push({
                 test: /\.md$/,
-                loader: all(
-                    "json-loader!property-loader?attributes!yaml-frontmatter-loader",
-                    "html-loader!highlight-loader!markdown-loader!property-loader?body!yaml-frontmatter-loader"
-                )
+                loader: all({
+                    attributes:
+                        "json-loader!property-loader?attributes!yaml-frontmatter-loader",
+                    body:
+                        "html-loader!highlight-loader!markdown-loader!property-loader?body!yaml-frontmatter-loader"
+                })
             });
         }
     }
