@@ -78,7 +78,9 @@ body {
     p,
     blockquote,
     pre,
-    table {
+    table,
+    ul,
+    ol {
         margin: 20px 0;
     }
 
@@ -162,7 +164,58 @@ body {
 
     ul,
     ol {
-        padding-left: 20px;
+        background-color: #fafafa;
+        border-top: 1px solid $themeColor_primary;
+        border-bottom: 1px solid $themeColor_secondary;
+        padding: 5px 0 5px 30px;
+        list-style: none;
+
+        & ul,
+        & ol {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            padding-left: 30px;
+        }
+
+        & > li {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                left: -20px;
+            }
+        }
+    }
+
+    ul > li::before {
+        content: "";
+        top: 0.65em;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-left: 7px solid $themeColor_primary;
+        border-right-width: 0;
+    }
+
+    ol {
+        counter-reset: list;
+
+        & > li::before {
+            counter-increment: list;
+            content: counter(list);
+            top: 0.85em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15px;
+            height: 15px;
+            font-size: 10px;
+            color: #fafafa;
+            background-color: $themeColor_primary;
+            border-radius: 50%;
+        }
     }
 
     blockquote {
