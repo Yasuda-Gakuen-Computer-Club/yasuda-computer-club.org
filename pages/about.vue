@@ -1,9 +1,9 @@
 <template>
     <main>
-        <PageTitle title="このクラブについて"/>
+        <PageTitle :title="content[0].title"/>
         <div
             class="content markdown"
-            v-html="content"/>
+            v-html="content[1]"/>
     </main>
 </template>
 
