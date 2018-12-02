@@ -9,15 +9,14 @@
 
 <script>
 import PageTitle from "@/components/PageTitle.vue";
-import content from "@/contents/static/about.md";
+
+const context = require.context("@/contents/static", false, /\.md$/);
 
 export default {
     components: { PageTitle },
-    data: () => ({
-        content
+    validate: ({ params }) => context.keys().includes(`./${params.static}.md`),
+    asyncData: ({ params }) => ({
+        content: context(`./${params.static}.md`)
     })
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
