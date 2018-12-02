@@ -1,5 +1,4 @@
 const pkg = require("./package"),
-    multi = require("multi-loader"),
     all = require("./loaders/all-loader/index.js");
 
 module.exports = {
