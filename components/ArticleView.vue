@@ -96,7 +96,7 @@ export default {
         border-radius: 2px;
         transition: $transition_out;
 
-        &:hover {
+        @include hover-or-active {
             background-color: #ccc;
             transition: $transition_in;
 
