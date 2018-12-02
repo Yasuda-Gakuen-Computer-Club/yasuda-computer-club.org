@@ -1,11 +1,11 @@
 <template>
     <header>
         <div class="header-wrapper">
-            <router-link to="/">
+            <nuxt-link to="/">
                 <HeaderLogo
                     class="header-logo"
                     color="#FAFAFA"/>
-            </router-link>
+            </nuxt-link>
             <nav>
                 <button
                     :class="{fill: showNavi}"
@@ -15,13 +15,13 @@
                     :class="{show: showNavi}"
                     @click="showNavi = false">
                     <li>
-                        <router-link to="/">TOP</router-link>
+                        <nuxt-link to="/">TOP</nuxt-link>
                     </li>
                     <li>
-                        <router-link to="/about">ABOUT</router-link>
+                        <nuxt-link to="/about">ABOUT</nuxt-link>
                     </li>
                     <li>
-                        <router-link to="/articles">ARTICLES</router-link>
+                        <nuxt-link to="/articles">ARTICLES</nuxt-link>
                     </li>
                 </ul>
             </nav>
