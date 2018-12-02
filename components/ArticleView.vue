@@ -94,6 +94,17 @@ export default {
         color: currentColor;
         text-decoration: none;
         border-radius: 2px;
+        transition: $transition_out;
+
+        &:hover {
+            background-color: #ccc;
+            transition: $transition_in;
+
+            &::before {
+                border-color: transparent transparent #ccc #ccc;
+                transition: $transition_in;
+            }
+        }
 
         &::before,
         &::after {
@@ -113,6 +124,7 @@ export default {
             border-width: 11.5px;
             border-radius: 2px;
             transform: rotate(45deg);
+            transition: $transition_out;
         }
         &::after {
             left: -8px;
