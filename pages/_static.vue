@@ -1,19 +1,18 @@
 <template>
     <main>
-        <PageTitle :title="content[0].title"/>
-        <div
-            class="content markdown"
-            v-html="content[1]"/>
+        <ArticleView
+            :attributes="content[0]"
+            :body="content[1]"/>
     </main>
 </template>
 
 <script>
-import PageTitle from "@/components/PageTitle.vue";
+import ArticleView from "@/components/ArticleView.vue";
 
 const context = require.context("@/contents/static", false, /\.md$/);
 
 export default {
-    components: { PageTitle },
+    components: { ArticleView },
     validate: ({ params }) => context.keys().includes(`./${params.static}.md`),
     asyncData: ({ params }) => ({
         content: context(`./${params.static}.md`)
