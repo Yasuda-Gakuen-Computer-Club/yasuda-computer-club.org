@@ -7,7 +7,9 @@
                     src="@/assets/room_1.jpg">
                 <h2>ここにキャッチコピー</h2>
             </div>
-            <div class="grid-item">ふが</div>
+            <div class="grid-item about">
+                <router-link to="/about">ABOUT</router-link>
+            </div>
             <div class="grid-item">ぴよ</div>
             <div class="grid-item">ふー</div>
             <div class="grid-item">ばー</div>
@@ -24,8 +26,6 @@
     perspective: 1000px;
 
     & > .grid-item {
-        border: 1px solid #ccc;
-
         &:nth-child(even) {
             animation: PageIndex_enter_even 1s 0.5s 1 forwards;
             opacity: 0;
@@ -91,6 +91,18 @@
                 width: fit-content;
                 height: fit-content;
                 color: #fafafa;
+            }
+        }
+
+        &.about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $themeColor_primary;
+
+            & a {
+                text-decoration: none;
+                color: $themeColor_primary;
             }
         }
     }

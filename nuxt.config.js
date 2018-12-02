@@ -1,4 +1,6 @@
-const pkg = require("./package");
+const pkg = require("./package"),
+    multi = require("multi-loader"),
+    all = require("./loaders/all-loader/index.js");
 
 module.exports = {
     mode: "universal",
@@ -72,13 +74,18 @@ module.exports = {
                 });
             }
 
+            const resolveLoader = (config.resolveLoader =
+                    config.resolveLoader || {}),
+                modules = (resolveLoader.modules = resolveLoader.modules || []);
+            if (!modules.includes("node_modules")) modules.push("node_modules");
+            if (!modules.includes("loaders")) modules.push("loaders");
+
             config.module.rules.push({
                 test: /\.md$/,
-                use: [
-                    { loader: "html-loader" },
-                    { loader: "highlight-loader" },
-                    { loader: "markdown-loader" }
-                ]
+                loader: all(
+                    "json-loader!property-loader?attributes!yaml-frontmatter-loader",
+                    "html-loader!highlight-loader!markdown-loader!property-loader?body!yaml-frontmatter-loader"
+                )
             });
         }
     }
