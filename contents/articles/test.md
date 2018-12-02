@@ -1,6 +1,9 @@
 ---
 title: テスト用の記事
 author: Fugaci
+created: 2018-12-02
+updated: 2018-12-02
+tags: hoge, fuga
 ---
 
 # 見出しレベル1

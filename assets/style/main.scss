@@ -43,14 +43,6 @@ body {
     transform: scale(0.95);
 }
 
-@mixin headingBottomBorder($border-width, $font-size) {
-    padding-bottom: $border-width;
-    font-size: $font-size;
-
-    &::before {
-        height: $border-width;
-    }
-}
 .content {
     line-height: 2;
     width: 100%;
@@ -82,6 +74,15 @@ body {
     ul,
     ol {
         margin: 20px 0;
+    }
+
+    @mixin headingBottomBorder($border-width, $font-size) {
+        padding-bottom: $border-width;
+        font-size: $font-size;
+
+        &::before {
+            height: $border-width;
+        }
     }
 
     h1,
