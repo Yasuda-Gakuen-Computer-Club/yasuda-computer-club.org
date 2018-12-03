@@ -1,8 +1,3 @@
-# MIDDLEWARE
+# /middleware
 
-**This directory is not required, you can delete it if you don't want to use it.**
-
-This directory contains your application middleware.
-The middleware lets you define custom function to be ran before rendering a page or a group of pages (layouts).
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/routing#middleware).
+Nuxt.js のミドルウェアを入れます。詳しくは [Nuxt.js の公式ガイド](https://ja.nuxtjs.org/guide/routing#%E3%83%9F%E3%83%89%E3%83%AB%E3%82%A6%E3%82%A7%E3%82%A2) を確認してください。

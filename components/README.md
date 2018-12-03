@@ -1,7 +1,3 @@
-# COMPONENTS
+# /components
 
-**This directory is not required, you can delete it if you don't want to use it.**
-
-The components directory contains your Vue.js Components.
-
-_Nuxt.js doesn't supercharge these components._
+Vue.js の単一ファイルコンポーネントの **\*.vue** ファイルを入れます。おおむね [Vue.js の公式スタイルガイド](https://jp.vuejs.org/v2/style-guide/index.html) に倣ってコンポーネント名をつけましょう。
