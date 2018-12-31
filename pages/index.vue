@@ -4,7 +4,7 @@
             <div class="grid-item first">
                 <img
                     class="first-background"
-                    src="@/assets/room_1.jpg">
+                    src="~/assets/room_1.jpg">
                 <h2>ここにキャッチコピー</h2>
             </div>
             <div class="grid-item about">

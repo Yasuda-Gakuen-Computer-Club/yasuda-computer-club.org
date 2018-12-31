@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import ArticleView from "@/components/ArticleView.vue";
+import ArticleView from "~/components/ArticleView.vue";
 
-const context = require.context("@/contents/articles", false, /\.md$/);
+const context = require.context("~/contents", false, /\.md$/);
 
 export default {
     components: { ArticleView },
-    validate: ({ params }) => context.keys().includes(`./${params.slag}.md`),
+    validate: ({ params }) => context.keys().includes(`./${params.content}.md`),
     asyncData: ({ params }) => ({
-        content: context(`./${params.slag}.md`)
+        content: context(`./${params.content}.md`)
     })
 };
 </script>

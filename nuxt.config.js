@@ -117,7 +117,7 @@ module.exports = {
     /*
     ** Global CSS
     */
-    css: ["@/assets/style/main.scss"],
+    css: ["~/assets/style/main.scss"],
 
     /*
     ** Plugins to load before mounting the App
@@ -130,7 +130,7 @@ module.exports = {
     modules: [
         [
             "nuxt-sass-resources-loader",
-            ["@/assets/style/variables.scss", "@/assets/style/mixins.scss"]
+            ["~/assets/style/variables.scss", "~/assets/style/mixins.scss"]
         ]
     ],
 

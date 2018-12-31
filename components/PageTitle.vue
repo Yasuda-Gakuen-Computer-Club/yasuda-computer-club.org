@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TextAnimation from "@/components/TextAnimation.vue";
+import TextAnimation from "~/components/TextAnimation.vue";
 
 export default {
     name: "PageTitle",
