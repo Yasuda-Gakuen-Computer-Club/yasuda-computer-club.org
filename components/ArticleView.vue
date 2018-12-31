@@ -9,7 +9,17 @@
                     v-if="attributes.author"
                     class="attribute">
                     <i class="material-icons">create</i>
-                    作成者: <nuxt-link :to="`/person/${attributes.author.id}`">{{ attributes.author.name }}</nuxt-link>
+                    作成者:
+                    <nuxt-link
+                        :to="`/person/${attributes.author.id}`"
+                        class="author-link">
+                        <img
+                            v-if="attributes.author.avatar"
+                            :src="attributes.author.avatar.fields.file.url"
+                            :alt="attributes.author.avatar.fields.title"
+                            class="author-avatar">
+                        {{ attributes.author.name }}
+                    </nuxt-link>
                 </div>
                 <div
                     v-if="attributes.created"
@@ -79,6 +89,19 @@ export default {
 
     & .attribute {
         padding: 5px 10px;
+    }
+
+    & .author-link {
+        color: currentColor;
+        text-decoration: none;
+
+        & .author-avatar {
+            width: 1.2em;
+            height: 1.2em;
+            vertical-align: middle;
+            border: 1px solid #9e9e9e;
+            border-radius: 2px;
+        }
     }
 
     & .attribute-tag {
