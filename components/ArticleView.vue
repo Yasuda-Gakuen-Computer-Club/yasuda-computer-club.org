@@ -1,6 +1,8 @@
 <template>
     <div>
-        <PageTitle :title="attributes.title"/>
+        <PageTitle
+            :title="attributes.title"
+            :thumbnail="attributes.thumbnail"/>
         <div class="content">
             <div class="attributes">
                 <div

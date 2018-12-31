@@ -57,7 +57,7 @@ header {
     width: 100%;
     background: $themeGradient;
     box-shadow: 0 0 20px rgba(#000, 0.2);
-    z-index: 1;
+    z-index: 2;
 
     &::after {
         content: "";

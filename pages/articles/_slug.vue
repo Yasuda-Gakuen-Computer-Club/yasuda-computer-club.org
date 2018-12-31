@@ -30,14 +30,21 @@ export default {
     },
     computed: {
         attributes() {
-            const { sys, fields } = this.post;
-            return {
-                title: fields.title,
-                author: fields.author.fields,
-                created: sys.createdAt,
-                updated: sys.updatedAt,
-                tags: fields.tags.map(tag => tag.fields)
-            };
+            const { sys, fields } = this.post,
+                attributes = {
+                    title: fields.title,
+                    author: fields.author.fields,
+                    created: sys.createdAt,
+                    updated: sys.updatedAt
+                };
+            if (fields.tags)
+                attributes.tags = fields.tags.map(tag => tag.fields);
+            if (fields.thumbnail)
+                attributes.thumbnail = {
+                    src: fields.thumbnail.fields.file.url,
+                    alt: fields.thumbnail.fields.title
+                };
+            return attributes;
         },
         body() {
             return documentToHtmlString(this.post.fields.body);

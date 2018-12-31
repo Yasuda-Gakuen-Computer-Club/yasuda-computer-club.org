@@ -1,5 +1,10 @@
 <template>
     <div class="page-title">
+        <img
+            v-if="thumbnail"
+            :src="thumbnail.src"
+            :alt="thumbnail.alt"
+            class="thumbnail">
         <h1>
             <TextAnimation :title="title"/>
         </h1>
@@ -16,6 +21,10 @@ export default {
         title: {
             type: String,
             required: true
+        },
+        thumbnail: {
+            type: Object,
+            default: null
         }
     }
 };
@@ -86,6 +95,7 @@ $height: 300px;
         height: 10vw;
         background-color: rgba(#fafafa, 0.3);
         box-shadow: 0 0 20px rgba(#000, 0.1);
+        z-index: 1;
     }
     &::before {
         left: 0;
@@ -110,6 +120,19 @@ $height: 300px;
                 transform: translateY(100%);
             }
         }
+    }
+
+    & .thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
     }
 }
 </style>
