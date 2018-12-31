@@ -4,7 +4,9 @@
             :title="attributes.title"
             :thumbnail="attributes.thumbnail"/>
         <div class="content">
-            <div class="attributes">
+            <div
+                v-if="attributes.author || attributes.created || attributes.updated || attributes.tags"
+                class="attributes">
                 <div
                     v-if="attributes.author"
                     class="attribute">
