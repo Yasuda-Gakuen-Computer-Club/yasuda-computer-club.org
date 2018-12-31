@@ -6,7 +6,6 @@
     </main>
 </template>
 
-
 <script>
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { createClient } from "~/plugins/contentful.js";
@@ -17,8 +16,8 @@ const client = createClient();
 
 export default {
     components: { ArticleView },
-    asyncData({ env, params }) {
-        return client
+    asyncData: ({ env, params }) =>
+        client
             .getEntries({
                 content_type: env.CTF_BLOG_POST_TYPE_ID,
                 "fields.slug": params.slug
@@ -26,8 +25,7 @@ export default {
             .then(entries => ({
                 post: entries.items[0]
             }))
-            .catch(console.error);
-    },
+            .catch(console.error),
     computed: {
         attributes() {
             const { sys, fields } = this.post,

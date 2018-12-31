@@ -136,7 +136,8 @@ module.exports = {
     ],
 
     env: {
-        CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
+        CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+        CTF_PERSON_TYPE_ID: process.env.CTF_PERSON_TYPE_ID
     },
 
     /*
