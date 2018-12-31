@@ -14,6 +14,7 @@
         "precommit": "npm run lint:fix"
     },
     "dependencies": {
+        "@contentful/rich-text-html-renderer": "^12.1.2",
         "@nuxtjs/dotenv": "^1.3.0",
         "contentful": "^7.0.5",
         "cross-env": "^5.2.0",
