@@ -128,11 +128,16 @@ module.exports = {
     ** Nuxt.js modules
     */
     modules: [
+        "@nuxtjs/dotenv",
         [
             "nuxt-sass-resources-loader",
             ["~/assets/style/variables.scss", "~/assets/style/mixins.scss"]
         ]
     ],
+
+    env: {
+        CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
+    },
 
     /*
     ** Build configuration
