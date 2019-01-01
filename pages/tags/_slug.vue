@@ -1,7 +1,7 @@
 <template>
     <main>
         <ArticleView :attributes="{ title: `タグ: ${tag.fields.name}` }">
-            <h2>このタグがついた記事一覧</h2>
+            <h2>記事一覧</h2>
             <div class="article-list">
                 <ArticleCard
                     v-for="post in posts"
