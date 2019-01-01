@@ -50,8 +50,14 @@
                 </div>
             </div>
             <div
-                class="markdown"
+                v-if="body"
+                class="article-body"
                 v-html="body"/>
+            <div
+                v-else
+                class="article-body">
+                <slot/>
+            </div>
         </div>
     </div>
 </template>
@@ -74,7 +80,7 @@ export default {
         },
         body: {
             type: String,
-            required: true
+            default: ""
         }
     }
 };

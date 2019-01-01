@@ -1,8 +1,21 @@
 <template>
     <main>
-        <ArticleView
-            :attributes="{ title: `タグ: ${tag.fields.name}` }"
-            :body="body"/>
+        <ArticleView :attributes="{ title: `タグ: ${tag.fields.name}` }">
+            <h2>このタグがついた記事一覧</h2>
+            <div class="article-list">
+                <ArticleCard
+                    v-for="post in posts"
+                    :key="post.sys.id"
+                    :to="`/articles/${post.fields.slug}`"
+                    :thumbnail="{
+                        src: post.fields.thumbnail ? post.fields.thumbnail.fields.file.url : '',
+                        alt: post.fields.title
+                    }"
+                    class="article-card">
+                    {{ post.fields.title }}
+                </ArticleCard>
+            </div>
+        </ArticleView>
     </main>
 </template>
 
@@ -10,11 +23,12 @@
 import { createClient } from "~/plugins/contentful.js";
 
 import ArticleView from "~/components/ArticleView.vue";
+import ArticleCard from "~/components/ArticleCard.vue";
 
 const client = createClient();
 
 export default {
-    components: { ArticleView },
+    components: { ArticleView, ArticleCard },
     async asyncData({ env, params }) {
         const tagEntries = await client.getEntries({
                 content_type: env.CTF_TAG_TYPE_ID,
@@ -23,7 +37,8 @@ export default {
             tag = tagEntries.items[0],
             postEntries = await client.getEntries({
                 content_type: env.CTF_BLOG_POST_TYPE_ID,
-                "fields.tags.sys.id": tag.sys.id
+                "fields.tags.sys.id": tag.sys.id,
+                order: "-sys.createdAt"
             });
         return { tag, posts: postEntries.items };
     },
@@ -34,3 +49,15 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+.article-list {
+    display: flex;
+    justify-content: center;
+
+    & .article-card {
+        margin: 20px;
+        width: 250px;
+    }
+}
+</style>
