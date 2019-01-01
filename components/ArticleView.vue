@@ -2,7 +2,8 @@
     <div>
         <PageTitle
             :title="attributes.title"
-            :thumbnail="attributes.thumbnail"/>
+            :thumbnail="attributes.thumbnail"
+            :avatar="attributes.avatar"/>
         <div class="content">
             <div
                 v-if="attributes.author || attributes.created || attributes.updated || attributes.tags"
