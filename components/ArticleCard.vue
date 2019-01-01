@@ -34,7 +34,14 @@ export default {
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(#000, 0.2);
     border-radius: 2px;
-    background-color: #fafafa;
+    overflow: hidden;
+    background-color: #fff;
+    transition: 0.2s;
+
+    &:active {
+        filter: brightness(95%);
+        transition: 0.1s;
+    }
 
     & .article-thumbnail {
         position: relative;
@@ -50,6 +57,7 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            box-shadow: none;
         }
     }
 
