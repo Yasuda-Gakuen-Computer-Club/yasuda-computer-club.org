@@ -9,7 +9,7 @@
                 :key="i"
                 :style="{'animation-delay': `${i * 100}ms`}"
                 class="letter">
-                {{ letter }}
+                <pre>{{ letter }}</pre>
             </span>
         </template>
         <template v-else>
@@ -49,6 +49,10 @@ export default {
     opacity: 0;
     animation: PageTitleAnimated_letter_enter 1s cubic-bezier(0.1, 0.6, 0.4, 1)
         forwards;
+
+    & pre {
+        font-family: inherit;
+    }
 
     @keyframes PageTitleAnimated_letter_enter {
         0% {
