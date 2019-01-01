@@ -1,7 +1,7 @@
 <template>
     <main>
         <ArticleView
-            :attributes="{ title: tag.fields.name }"
+            :attributes="{ title: `タグ: ${tag.fields.name}` }"
             :body="body"/>
     </main>
 </template>
