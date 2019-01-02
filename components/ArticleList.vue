@@ -43,13 +43,9 @@ export default {
 
 <style lang="scss" scoped>
 .article-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 25px;
     justify-content: center;
-
-    & .article-card {
-        margin: 20px;
-        width: 250px;
-    }
 }
 </style>

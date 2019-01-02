@@ -44,16 +44,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.article-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    & .article-card {
-        margin: 20px;
-        width: 250px;
-    }
-}
-</style>
