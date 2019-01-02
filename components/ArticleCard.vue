@@ -55,6 +55,7 @@ export default {
             position: absolute;
             top: -3px;
             left: -3px;
+            margin: 0;
             width: calc(100% + 6px);
             height: calc(100% + 6px);
             object-fit: cover;
