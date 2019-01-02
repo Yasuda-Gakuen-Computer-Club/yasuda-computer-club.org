@@ -49,15 +49,51 @@ export default {
         width: 100%;
         padding-top: 56.25%;
         border-bottom: 1px solid #d0d0d0;
+        overflow: hidden;
 
         & img {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -3px;
+            left: -3px;
+            width: calc(100% + 6px);
+            height: calc(100% + 6px);
             object-fit: cover;
             box-shadow: none;
+            transition: 0.2s;
+        }
+
+        &::after {
+            content: "READ MORE...";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            display: block;
+            width: 100%;
+            height: 1.5em;
+            line-height: 1.5em;
+            background-color: rgba(#000, 0.3);
+            color: #fafafa;
+            font-size: 1.5em;
+            font-weight: 100;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: 0.2s;
+        }
+    }
+
+    &:hover .article-thumbnail {
+        &::after {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+
+        & img {
+            filter: blur(3px);
         }
     }
 
