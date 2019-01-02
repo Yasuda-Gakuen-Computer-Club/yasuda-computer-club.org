@@ -165,8 +165,8 @@ main {
         }
     }
 
-    ul,
-    ol {
+    ul:not(.no-marker),
+    ol:not(.no-marker) {
         background-color: #fafafa;
         border-top: 1px solid $themeColor_primary;
         border-bottom: 1px solid $themeColor_secondary;
@@ -198,7 +198,7 @@ main {
         }
     }
 
-    ul > li::before {
+    ul:not(.no-marker) > li::before {
         content: "";
         top: 0.65em;
         display: block;
@@ -209,7 +209,7 @@ main {
         border-right-width: 0;
     }
 
-    ol {
+    ol:not(.no-marker) {
         counter-reset: list;
 
         & > li::before {
@@ -226,6 +226,11 @@ main {
             background-color: $themeColor_primary;
             border-radius: 50%;
         }
+    }
+
+    ul.no-marker,
+    ol.no-marker {
+        list-style: none;
     }
 
     blockquote {

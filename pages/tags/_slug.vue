@@ -2,19 +2,21 @@
     <main>
         <ArticleView :attributes="{ title: `タグ: ${tag.fields.name}` }">
             <h2>記事一覧</h2>
-            <div class="article-list">
-                <ArticleCard
+            <ul class="article-list no-marker">
+                <li
                     v-for="post in posts"
-                    :key="post.sys.id"
-                    :to="`/articles/${post.fields.slug}`"
-                    :thumbnail="{
-                        src: post.fields.thumbnail ? post.fields.thumbnail.fields.file.url : '',
-                        alt: post.fields.title
-                    }"
-                    class="article-card">
-                    {{ post.fields.title }}
-                </ArticleCard>
-            </div>
+                    :key="post.sys.id">
+                    <ArticleCard
+                        :to="`/articles/${post.fields.slug}`"
+                        :thumbnail="{
+                            src: post.fields.thumbnail ? post.fields.thumbnail.fields.file.url : '',
+                            alt: post.fields.title
+                        }"
+                        class="article-card">
+                        {{ post.fields.title }}
+                    </ArticleCard>
+                </li>
+            </ul>
         </ArticleView>
     </main>
 </template>
@@ -53,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 .article-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 
     & .article-card {
