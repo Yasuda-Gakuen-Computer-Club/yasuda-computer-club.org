@@ -49,13 +49,7 @@
                     </nuxt-link>
                 </div>
             </div>
-            <div
-                v-if="body"
-                class="article-body"
-                v-html="body"/>
-            <div
-                v-else
-                class="article-body">
+            <div class="article-body">
                 <slot/>
             </div>
         </div>
@@ -77,10 +71,6 @@ export default {
         attributes: {
             type: Object,
             required: true
-        },
-        body: {
-            type: String,
-            default: ""
         }
     }
 };

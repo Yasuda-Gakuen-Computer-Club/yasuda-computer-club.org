@@ -1,8 +1,8 @@
 <template>
     <main>
-        <ArticleView
-            :attributes="content.attributes"
-            :body="content.body"/>
+        <ArticleView :attributes="content.attributes">
+            <div v-html="content.body"/>
+        </ArticleView>
     </main>
 </template>
 
