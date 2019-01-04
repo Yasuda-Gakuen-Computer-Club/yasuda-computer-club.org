@@ -30,10 +30,10 @@ export default {
         const { type, href, data } = this;
         let contents = [],
             linkElement;
+        console.log(data);
 
         switch (type) {
             case "article":
-                console.log(data);
                 if (data.thumbnail)
                     contents.push(
                         createElement("img", {
@@ -87,23 +87,34 @@ export default {
                         })
                     );
                 contents.push(
-                    createElement("div", { class: { "embed-desc": true } }, [
+                    createElement("div", { class: "embed-desc" }, [
                         createElement("div", { class: "embed-data" }, [
                             createElement(
                                 "div",
-                                { class: { "embed-title": true } },
+                                { class: "embed-title" },
                                 data.name
                             )
                         ]),
                         createElement(
                             "div",
-                            { class: { "embed-details": true } },
+                            { class: "embed-details" },
                             data.bio || ""
                         )
                     ])
                 );
                 break;
             case "tag":
+                contents.push(
+                    createElement("div", { class: "embed-desc" }, [
+                        createElement("div", { class: "embed-data" }, [
+                            createElement(
+                                "div",
+                                { class: "embed-title" },
+                                `タグ: ${data.name}`
+                            )
+                        ])
+                    ])
+                );
                 break;
             default:
                 contents = this.$slots.default;
@@ -187,7 +198,9 @@ export default {
     &.embed-article > .embed-content,
     &.embed-article > a,
     &.embed-person > .embed-content,
-    &.embed-person > a {
+    &.embed-person > a,
+    &.embed-tag > .embed-content,
+    &.embed-tag > a {
         padding: 0;
 
         & > img {
@@ -219,12 +232,11 @@ export default {
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
-                    flex-grow: 1;
                 }
                 & .embed-info {
                     padding: 10px;
                     font-size: small;
-                    color: #c5b6b6;
+                    color: #757575;
                     align-self: flex-end;
                     overflow: hidden;
                     white-space: nowrap;
@@ -239,7 +251,7 @@ export default {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 font-size: small;
-                color: #c5b6b6;
+                color: #757575;
             }
         }
     }
