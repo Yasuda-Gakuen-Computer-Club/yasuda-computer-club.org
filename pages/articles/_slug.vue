@@ -5,6 +5,7 @@ import { createClient } from "~/plugins/contentful.js";
 
 import ArticleView from "~/components/ArticleView.vue";
 import EmbedCard from "~/components/EmbedCard.vue";
+import EmbedCardInline from "~/components/EmbedCardInline.vue";
 
 const { BLOCKS, MARKS, INLINES, helpers } = TYPES,
     nodeTypeToTagNameTable = {
@@ -80,15 +81,18 @@ const client = createClient(),
     createRichTextRenderer = createElement => {
         const render = node => {
             if (helpers.isText(node))
-                return node.marks.reduce(
-                    (value, mark) =>
-                        mark.type in marksToTagNameTable
-                            ? createElement(marksToTagNameTable[mark.type], [
-                                  value
-                              ])
-                            : value,
-                    escapeHTML(node.value)
-                );
+                return node.marks.reduce((value, mark, i, arr) => {
+                    if (i === 0 && arr.every(mark => mark.type !== MARKS.CODE))
+                        value = escapeHTML(value);
+
+                    if (mark.type === MARKS.CODE)
+                        return createElement("code", value);
+                    else if (mark.type in marksToTagNameTable)
+                        return createElement(marksToTagNameTable[mark.type], [
+                            value
+                        ]);
+                    else return value;
+                }, node.value);
 
             const { nodeType, content } = node,
                 children = content.map(render);
@@ -155,6 +159,24 @@ const client = createClient(),
                             }
                         });
                 }
+            } else if (nodeType === INLINES.EMBEDDED_ENTRY) {
+                const { target } = node.data;
+                console.log(target);
+                let href, outLink, content;
+                switch (target.sys.contentType.sys.id) {
+                    case process.env.CTF_BLOG_POST_TYPE_ID:
+                        outLink = false;
+                        href = `/articles/${target.fields.slug}`;
+                        content = target.fields.title;
+                        break;
+                }
+                return createElement(
+                    "EmbedCardInline",
+                    { props: { href, outLink } },
+                    content
+                );
+            } else if (nodeType === BLOCKS.HR) {
+                return createElement("hr");
             } else if (nodeType in nodeTypeToTagNameTable) {
                 return createElement(
                     nodeTypeToTagNameTable[nodeType],
@@ -172,7 +194,7 @@ const client = createClient(),
     };
 
 export default {
-    components: { ArticleView, EmbedCard },
+    components: { ArticleView, EmbedCard, EmbedCardInline },
     asyncData: ({ env, params }) =>
         client
             .getEntries({

@@ -30,7 +30,6 @@ export default {
         const { type, href, data } = this;
         let contents = [],
             linkElement;
-        console.log(data);
 
         switch (type) {
             case "article":
