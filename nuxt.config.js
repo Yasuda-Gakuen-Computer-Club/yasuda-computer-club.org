@@ -122,7 +122,7 @@ module.exports = {
     /*
     ** Plugins to load before mounting the App
     */
-    plugins: [],
+    plugins: ["~/plugins/vue-highlight.js"],
 
     /*
     ** Nuxt.js modules
@@ -138,7 +138,8 @@ module.exports = {
     env: {
         CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
         CTF_PERSON_TYPE_ID: process.env.CTF_PERSON_TYPE_ID,
-        CTF_TAG_TYPE_ID: process.env.CTF_TAG_TYPE_ID
+        CTF_TAG_TYPE_ID: process.env.CTF_TAG_TYPE_ID,
+        CTF_CODE_TYPE_ID: process.env.CTF_CODE_TYPE_ID
     },
 
     /*

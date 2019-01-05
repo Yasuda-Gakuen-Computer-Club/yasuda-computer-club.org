@@ -29,42 +29,6 @@ const { BLOCKS, MARKS, INLINES, helpers } = TYPES,
     };
 
 const client = createClient(),
-    renderOptions = {
-        renderNode: {
-            [BLOCKS.EMBEDDED_ASSET]: node => {
-                const { file, title } = node.data.target.fields,
-                    { contentType, url, fileName } = file;
-                switch (contentType.split("/")[0]) {
-                    case "image":
-                        return `<img src="${url}" alt="${title}">`;
-                    case "video":
-                        return `<video src="${url}" preload="metadata" controls></video>`;
-                    case "audio":
-                        return `<audio src="${url}" preload="metadata" controls></audio>`;
-                    default:
-                        return `<div class="embed-card"><a href="${url}">ファイル: ${title} <small>(${fileName})</small></a></div>`;
-                }
-            },
-            [BLOCKS.EMBEDDED_ENTRY]: node => {
-                const { sys, fields } = node.data.target;
-                switch (sys.contentType.sys.id) {
-                    case process.env.CTF_PERSON_TYPE_ID:
-                        const { name, id, avatar, bio } = fields,
-                            img = avatar
-                                ? `<img class="embed-avatar" src="${
-                                      avatar.fields.file.url
-                                  }" alt="${avatar.fields.title}">`
-                                : "";
-                        return `<div class="embed-card embed-person"><a href="/person/${id}">${img}<div class="embed-person-desc"><div class="embed-person-name">${name}</div><div class="embed-person-bio">${bio ||
-                            ""}</div></div></a></div>`;
-                    case process.env.CTF_BLOG_POST_TYPE_ID:
-                        const { title, slug } = fields;
-                        return `<div class="embed-card embed-post"><a href="/articles/${slug}">${title}</a></div>`;
-                    // TODO: 記事カードを用意する タグも用意する
-                }
-            }
-        }
-    },
     escapeHTML = text =>
         text.replace(
             /[&'`"<>]/g,
@@ -158,10 +122,21 @@ const client = createClient(),
                                 data: fields
                             }
                         });
+                    case process.env.CTF_CODE_TYPE_ID:
+                        return createElement(
+                            "pre",
+                            { directives: [{ name: "highlightjs" }] },
+                            [
+                                createElement(
+                                    "code",
+                                    { class: fields.language || "" },
+                                    [fields.body]
+                                )
+                            ]
+                        );
                 }
             } else if (nodeType === INLINES.EMBEDDED_ENTRY) {
                 const { target } = node.data;
-                console.log(target);
                 let href, outLink, content;
                 switch (target.sys.contentType.sys.id) {
                     case process.env.CTF_BLOG_POST_TYPE_ID:

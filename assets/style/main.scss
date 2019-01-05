@@ -252,6 +252,7 @@ main {
         font-size: 0.8em;
         background-color: #eee;
         border-radius: 5px;
+        overflow-x: auto;
 
         & code {
             border: 0;
