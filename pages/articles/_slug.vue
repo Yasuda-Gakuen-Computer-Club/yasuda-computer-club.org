@@ -22,7 +22,14 @@ export default {
                 content_type: env.CTF_BLOG_POST_TYPE_ID,
                 "fields.slug": params.slug
             })
-            .then(entries => ({ post: entries.items[0] }))
+            .then(entries => {
+                if (entries.items.length === 0)
+                    error({
+                        statusCode: 404,
+                        message: "???????????"
+                    });
+                else return { post: entries.items[0] };
+            })
             .catch(err =>
                 error({
                     statusCode: err.response.status,
