@@ -29,18 +29,16 @@ body {
     overflow-y: scroll;
 }
 .page-enter-active {
-    transition: 0.5s ease-out;
+    transition: 0.4s ease-out;
 }
 .page-leave-active {
-    transition: 0.5s ease-in;
+    transition: 0.2s ease-in;
 }
 .page-enter {
     opacity: 0;
-    transform: translateY(50px);
 }
 .page-leave-to {
     opacity: 0;
-    transform: scale(0.95);
 }
 
 main {
