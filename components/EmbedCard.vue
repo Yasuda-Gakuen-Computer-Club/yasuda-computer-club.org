@@ -254,5 +254,34 @@ export default {
             }
         }
     }
+
+    @include onMobile {
+        &.embed-article {
+            height: auto;
+
+            & > .embed-content,
+            & > a {
+                flex-direction: column;
+
+                & > img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                }
+
+                & .embed-desc {
+                    padding: 10px;
+
+                    & .embed-data {
+                        flex-direction: column;
+
+                        & .embed-info {
+                            align-self: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>
