@@ -26,7 +26,7 @@ export default {
                 if (entries.items.length === 0)
                     error({
                         statusCode: 404,
-                        message: "???????????"
+                        message: "ページが見つかりませんでした"
                     });
                 else return { post: entries.items[0] };
             })
