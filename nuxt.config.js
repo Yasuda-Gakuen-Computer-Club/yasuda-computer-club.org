@@ -105,6 +105,11 @@ module.exports = {
             {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Roboto:300,400"
+            },
+            {
+                rel: "stylesheet",
+                href:
+                    "https://fonts.googleapis.com/css?family=Roboto+Mono:400,700"
             }
         ]
     },

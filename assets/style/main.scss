@@ -250,7 +250,7 @@ main {
     pre {
         padding: 10px;
         font-size: 0.8em;
-        background-color: #eee;
+        background-color: #333;
         border-radius: 5px;
         overflow-x: auto;
 
@@ -266,6 +266,8 @@ main {
         border-radius: 5px;
         padding: 2px 5px;
         background-color: #eee;
+        font-family: "Roboto Mono", monospace;
+        font-size: small;
     }
 
     a {
@@ -352,5 +354,11 @@ main {
             padding: 5px 10px;
             white-space: nowrap;
         }
+    }
+}
+
+.hljs {
+    &-subst {
+        color: #de935f;
     }
 }

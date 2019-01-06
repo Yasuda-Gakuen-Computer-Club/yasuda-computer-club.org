@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/tomorrow-night.css";
 
 import TheHeader from "~/components/TheHeader.vue";
 
