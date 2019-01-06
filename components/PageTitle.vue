@@ -1,5 +1,15 @@
 <template>
     <div class="page-title">
+        <img
+            v-if="thumbnail"
+            :src="thumbnail.src"
+            :alt="thumbnail.alt"
+            class="thumbnail">
+        <img
+            v-if="avatar"
+            :src="avatar.src"
+            :alt="avatar.alt"
+            class="avatar">
         <h1>
             <TextAnimation :title="title"/>
         </h1>
@@ -7,7 +17,7 @@
 </template>
 
 <script>
-import TextAnimation from "@/components/TextAnimation.vue";
+import TextAnimation from "~/components/TextAnimation.vue";
 
 export default {
     name: "PageTitle",
@@ -16,6 +26,18 @@ export default {
         title: {
             type: String,
             required: true
+        },
+        thumbnail: {
+            type: Object,
+            default: null,
+            validator: val =>
+                typeof val.src === "string" && typeof val.alt === "string"
+        },
+        avatar: {
+            type: Object,
+            default: null,
+            validator: val =>
+                typeof val.src === "string" && typeof val.alt === "string"
         }
     }
 };
@@ -29,7 +51,9 @@ $height: 300px;
     position: absolute;
     top: 100px;
     left: 0;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: $height;
     background: $themeGradient;
@@ -41,11 +65,32 @@ $height: 300px;
         background-color: rgba(#fafafa, 0.3);
     }
 
+    & .thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
+    }
+
+    & .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+        margin-left: 50px;
+        flex-shrink: 1;
+    }
+
     & h1 {
         position: relative;
+        width: 100%;
         max-width: 1000px;
         height: 100%;
-        margin: 0 auto;
         padding: 0 50px;
         display: flex;
         align-items: center;
@@ -86,6 +131,7 @@ $height: 300px;
         height: 10vw;
         background-color: rgba(#fafafa, 0.3);
         box-shadow: 0 0 20px rgba(#000, 0.1);
+        z-index: 1;
     }
     &::before {
         left: 0;

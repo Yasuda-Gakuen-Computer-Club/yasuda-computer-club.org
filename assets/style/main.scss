@@ -29,29 +29,29 @@ body {
     overflow-y: scroll;
 }
 .page-enter-active {
-    transition: 0.5s ease-out;
+    transition: 0.4s ease-out;
 }
 .page-leave-active {
-    transition: 0.5s ease-in;
+    transition: 0.2s ease-in;
 }
 .page-enter {
     opacity: 0;
-    transform: translateY(50px);
 }
 .page-leave-to {
     opacity: 0;
-    transform: scale(0.95);
 }
 
+main {
+    padding-top: 100px;
+}
 .content {
     line-height: 2;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 100px;
 }
 .page-title + .content {
-    padding: 420px 50px 20px;
+    padding: 320px 50px 20px;
     background-color: #fcfcfc;
     box-shadow: 0 0 20px rgba(#000, 0.2);
 
@@ -60,7 +60,7 @@ body {
         padding-right: 20px;
     }
 }
-.markdown {
+.article-body {
     h1,
     h2,
     h3,
@@ -72,7 +72,10 @@ body {
     pre,
     table,
     ul,
-    ol {
+    ol,
+    img,
+    video,
+    audio {
         margin: 20px 0;
     }
 
@@ -163,8 +166,8 @@ body {
         }
     }
 
-    ul,
-    ol {
+    ul:not(.no-marker),
+    ol:not(.no-marker) {
         background-color: #fafafa;
         border-top: 1px solid $themeColor_primary;
         border-bottom: 1px solid $themeColor_secondary;
@@ -187,16 +190,21 @@ body {
         }
 
         & > li {
+            margin: 5px 0;
             position: relative;
 
             &::before {
                 position: absolute;
                 left: -20px;
             }
+
+            & > * {
+                margin: 0;
+            }
         }
     }
 
-    ul > li::before {
+    ul:not(.no-marker) > li::before {
         content: "";
         top: 0.65em;
         display: block;
@@ -207,7 +215,7 @@ body {
         border-right-width: 0;
     }
 
-    ol {
+    ol:not(.no-marker) {
         counter-reset: list;
 
         & > li::before {
@@ -226,6 +234,11 @@ body {
         }
     }
 
+    ul.no-marker,
+    ol.no-marker {
+        list-style: none;
+    }
+
     blockquote {
         border-left: 5px solid #bdbdbd;
         padding: 15px 0 15px 5px;
@@ -240,8 +253,9 @@ body {
     pre {
         padding: 10px;
         font-size: 0.8em;
-        background-color: #eee;
+        background-color: #333;
         border-radius: 5px;
+        overflow-x: auto;
 
         & code {
             border: 0;
@@ -255,6 +269,8 @@ body {
         border-radius: 5px;
         padding: 2px 5px;
         background-color: #eee;
+        font-family: "Roboto Mono", monospace;
+        font-size: small;
     }
 
     a {
@@ -288,11 +304,17 @@ body {
         }
     }
 
-    img {
+    img, video {
         display: block;
         width: 100%;
         height: auto;
         box-shadow: 0 0 20px rgba(#000, 0.1);
+        border-radius: 2px;
+    }
+
+    audio {
+        display: block;
+        width: 100%;
     }
 
     em {
@@ -335,5 +357,11 @@ body {
             padding: 5px 10px;
             white-space: nowrap;
         }
+    }
+}
+
+.hljs {
+    &-subst {
+        color: #de935f;
     }
 }

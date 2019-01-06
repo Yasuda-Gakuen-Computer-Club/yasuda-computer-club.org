@@ -105,6 +105,11 @@ module.exports = {
             {
                 rel: "stylesheet",
                 href: "https://fonts.googleapis.com/css?family=Roboto:300,400"
+            },
+            {
+                rel: "stylesheet",
+                href:
+                    "https://fonts.googleapis.com/css?family=Roboto+Mono:400,700"
             }
         ]
     },
@@ -117,22 +122,30 @@ module.exports = {
     /*
     ** Global CSS
     */
-    css: ["@/assets/style/main.scss"],
+    css: ["~/assets/style/main.scss"],
 
     /*
     ** Plugins to load before mounting the App
     */
-    plugins: [],
+    plugins: ["~/plugins/vue-highlight.js"],
 
     /*
     ** Nuxt.js modules
     */
     modules: [
+        "@nuxtjs/dotenv",
         [
             "nuxt-sass-resources-loader",
-            ["@/assets/style/variables.scss", "@/assets/style/mixins.scss"]
+            ["~/assets/style/variables.scss", "~/assets/style/mixins.scss"]
         ]
     ],
+
+    env: {
+        CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+        CTF_PERSON_TYPE_ID: process.env.CTF_PERSON_TYPE_ID,
+        CTF_TAG_TYPE_ID: process.env.CTF_TAG_TYPE_ID,
+        CTF_CODE_TYPE_ID: process.env.CTF_CODE_TYPE_ID
+    },
 
     /*
     ** Build configuration
