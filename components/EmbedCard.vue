@@ -167,7 +167,7 @@ export default {
     overflow: hidden;
     transition: 0.2s;
 
-    &:hover {
+    @include hover-or-active {
         background-color: #f0f0f0;
         transition: 0.1s;
     }
@@ -186,7 +186,7 @@ export default {
         padding: 20px;
         color: currentColor;
 
-        &:hover {
+        @include hover-or-active {
             background: transparent;
         }
         &::before {

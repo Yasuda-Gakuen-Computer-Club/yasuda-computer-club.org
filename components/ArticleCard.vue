@@ -86,15 +86,17 @@ export default {
         }
     }
 
-    &:hover .article-thumbnail {
-        &::after {
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-        }
+    @include hover-or-active {
+        & .article-thumbnail {
+            &::after {
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
 
-        & img {
-            filter: blur(3px);
+            & img {
+                filter: blur(3px);
+            }
         }
     }
 
