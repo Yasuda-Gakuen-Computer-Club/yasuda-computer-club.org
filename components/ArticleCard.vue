@@ -102,7 +102,9 @@ export default {
 
     & .article-title {
         margin: 0;
-        padding: 5px 10px;
+        padding: 15px 20px;
+        font-size: 20px;
+        line-height: 1.5;
         border: 0;
         color: currentColor;
     }

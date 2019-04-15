@@ -20,14 +20,25 @@
 </template>
 
 <style lang="scss" scoped>
+@mixin ifGridColumnsLessThan($w) {
+    @media screen and (max-width: 176px * $w + 20px * ($w + 1) + 16px) {
+        @content;
+    }
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 176px);
     grid-auto-rows: 60px;
     grid-gap: 20px;
+    grid-auto-flow: dense;
     justify-content: center;
     padding: 20px;
     perspective: 1000px;
+
+    @include ifGridColumnsLessThan(2) {
+        grid-template-columns: 1fr;
+    }
 
     & > .grid-item {
         grid-row: span 2;
@@ -87,6 +98,13 @@
             justify-content: center;
             align-items: center;
 
+            @include ifGridColumnsLessThan(3) {
+                grid-column: span 2;
+            }
+            @include ifGridColumnsLessThan(2) {
+                grid-column: span 1;
+            }
+
             & > img {
                 position: absolute;
                 top: 0;
@@ -106,6 +124,10 @@
         &.simple {
             grid-row: span 1;
             grid-column: span 2;
+
+            @include ifGridColumnsLessThan(2) {
+                grid-column: span 1;
+            }
 
             & > a {
                 position: relative;
