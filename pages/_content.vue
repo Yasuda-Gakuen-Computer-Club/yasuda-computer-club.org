@@ -9,7 +9,7 @@
 <script>
 import ArticleView from "~/components/ArticleView.vue";
 
-const context = require.context("~/contents", false, /\.md$/);
+const context = require.context("~/contents", false, /^(?!README).*\.md/);
 
 export default {
     components: { ArticleView },
