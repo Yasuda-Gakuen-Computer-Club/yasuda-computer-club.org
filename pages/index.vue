@@ -3,7 +3,7 @@
         <div class="grid-container">
             <div class="grid-item first">
                 <img src="~/assets/room_1.jpg">
-                <h2>安田学園の叡智</h2>
+                <h2>一万人に好かれるより、<br>あなたに好かれたいクラブ</h2>
             </div>
             <div class="grid-item simple">
                 <nuxt-link to="/about">このクラブについて</nuxt-link>
@@ -113,7 +113,7 @@
 
             & h2 {
                 color: #fafafa;
-                font-size: 48px;
+                font-size: 36px;
                 text-shadow: 0 0 5px #000;
                 font-family: serif;
             }
