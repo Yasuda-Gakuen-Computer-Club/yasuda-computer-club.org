@@ -181,5 +181,15 @@ module.exports = {
                 })
             });
         }
+    },
+
+    generate: {
+        routes: [
+            "/about",
+            "/articles/made-homepage",
+            "/person/katsumi-kobayashi",
+            "/tags/activities",
+            "/tags/school-events"
+        ]
     }
 };
