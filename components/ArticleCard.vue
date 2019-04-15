@@ -5,7 +5,7 @@
         class="article-card">
         <div class="article-thumbnail">
             <img
-                :src="thumbnail.src || 'http://placehold.jp/1280x720.png'"
+                :src="thumbnail.src || noImage"
                 :alt="thumbnail.alt || ''">
         </div>
         <h3 class="article-title"><slot/></h3>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import noImage from "~/assets/no_image.png";
+
 export default {
     name: "ArtileCard",
     props: {
@@ -22,9 +24,12 @@ export default {
         },
         thumbnail: {
             type: Object,
-            default: () => {}
+            default: () => ({})
         }
-    }
+    },
+    data: () => ({
+        noImage
+    })
 };
 </script>
 

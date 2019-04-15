@@ -3,7 +3,7 @@
         <div class="grid-container">
             <div class="grid-item first">
                 <img src="~/assets/room_1.jpg">
-                <h2>ここにキャッチコピー</h2>
+                <h2>安田学園の叡智</h2>
             </div>
             <div class="grid-item simple">
                 <nuxt-link to="/about">このクラブについて</nuxt-link>
@@ -11,10 +11,6 @@
             <div class="grid-item simple">
                 <nuxt-link to="/articles">記事一覧</nuxt-link>
             </div>
-            <div class="grid-item">ぴよ</div>
-            <div class="grid-item">ふー</div>
-            <div class="grid-item">ばー</div>
-            <div class="grid-item">ばず</div>
         </div>
     </main>
 </template>
@@ -117,7 +113,9 @@
 
             & h2 {
                 color: #fafafa;
-                font-size: xx-large;
+                font-size: 48px;
+                text-shadow: 0 0 5px #000;
+                font-family: serif;
             }
         }
 
