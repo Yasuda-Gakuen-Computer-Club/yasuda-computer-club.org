@@ -36,6 +36,11 @@ export default {
                     message: `${err.message} | ${err.response.data.message}`
                 })
             ),
+    head() {
+        return {
+            title: `${this.attributes.title} | 安田学園コンピュータークラブ`
+        };
+    },
     computed: {
         attributes() {
             const { sys, fields } = this.post,

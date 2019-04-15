@@ -29,6 +29,11 @@ export default {
                 order: "-sys.createdAt"
             });
         return { tag, posts: postEntries.items };
+    },
+    head() {
+        return {
+            title: `${this.tag.fields.name} | 安田学園コンピュータークラブ`
+        };
     }
 };
 </script>

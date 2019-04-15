@@ -16,6 +16,13 @@ export default {
     validate: ({ params }) => context.keys().includes(`./${params.content}.md`),
     asyncData: ({ params }) => ({
         content: context(`./${params.content}.md`)
-    })
+    }),
+    head() {
+        return {
+            title: `${
+                this.content.attributes.title
+            } | 安田学園コンピュータークラブ`
+        };
+    }
 };
 </script>

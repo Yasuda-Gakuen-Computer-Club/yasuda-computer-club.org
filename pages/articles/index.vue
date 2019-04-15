@@ -28,6 +28,7 @@ export default {
                     statusCode: err.response.status,
                     message: `${err.message} | ${err.response.data.message}`
                 })
-            )
+            ),
+    head: () => ({ title: "記事一覧 | 安田学園コンピュータークラブ" })
 };
 </script>

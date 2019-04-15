@@ -30,6 +30,11 @@ export default {
             });
         return { person, posts: postEntries.items };
     },
+    head() {
+        return {
+            title: `${this.attributes.title} | 安田学園コンピュータークラブ`
+        };
+    },
     computed: {
         attributes() {
             const { fields } = this.person,
