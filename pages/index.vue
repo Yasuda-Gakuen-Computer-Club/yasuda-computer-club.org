@@ -11,6 +11,11 @@
             <div class="grid-item simple">
                 <nuxt-link to="/articles">記事一覧</nuxt-link>
             </div>
+            <div class="grid-item festival2019">
+                <a href="https://yasuda-computer-club.org/festival2019/">
+                    <img src="~/assets/festival2019.png">
+                </a>
+            </div>
         </div>
     </main>
 </template>
@@ -182,6 +187,23 @@
                         transform: skewX(-30deg) translateX(-100%);
                         transition-delay: 0.2s;
                     }
+                }
+            }
+        }
+
+        &.festival2019 {
+            grid-row: span 3;
+            grid-column: span 2;
+
+            & > a {
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                & > img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
         }
