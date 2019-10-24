@@ -6,6 +6,7 @@
                     class="header-logo"
                     color="#FAFAFA"/>
             </nuxt-link>
+            <div class="spacer" />
             <nav>
                 <button
                     :class="{fill: showNavi}"
@@ -77,6 +78,13 @@ header {
     max-width: 1000px;
     height: 100px;
     margin: 0 auto;
+
+    a,
+    .spacer {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+    }
 
     & .header-logo {
         width: auto;
