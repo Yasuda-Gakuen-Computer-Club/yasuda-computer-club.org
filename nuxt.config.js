@@ -187,9 +187,12 @@ module.exports = {
         routes: [
             "/about",
             "/articles/made-homepage",
+            "/articles/made-festival-website",
             "/person/katsumi-kobayashi",
+            "/person/fugaci",
             "/tags/activities",
-            "/tags/school-events"
+            "/tags/school-events",
+            "/tags/festival"
         ]
     }
 };
