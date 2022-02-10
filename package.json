@@ -31,7 +31,7 @@
         "eslint-plugin-vue": "^4.0.0",
         "highlight-loader": "^0.7.3",
         "markdown-loader": "^4.0.0",
-        "node-sass": "^4.10.0",
+        "node-sass": "^7.0.0",
         "nodemon": "^1.11.0",
         "nuxt-sass-resources-loader": "^2.0.5",
         "prettier": "1.14.3",
